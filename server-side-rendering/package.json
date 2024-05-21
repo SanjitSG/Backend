@@ -1,0 +1,24 @@
+{
+  "name": "server-side-rendering",
+  "version": "1.0.0",
+  "description": "server side rendering using express and node",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "keywords": [
+    "express",
+    "back-end",
+    "node"
+  ],
+  "author": "Sanjit SG",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
