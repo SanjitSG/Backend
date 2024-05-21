@@ -15,3 +15,8 @@ Node - Express - MongoDB
 - Request
 - Response
 - listen
+
+- _Events_
+  - on() emit()
+- Reading big files into chunks (videos)
+- Reading Http files and sending HTML content
