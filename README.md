@@ -3,6 +3,7 @@
 Node - Express - MongoDB
 
 - _intro_
+
   - node environment (REPL)
   - Globals
   - Modules
@@ -10,13 +11,16 @@ Node - Express - MongoDB
   - Path
   - file
   - Read and writing files (Sync, Async).
+
 - _Creating own server_
-- createServer
-- Request
-- Response
-- listen
+
+  - createServer
+  - Request
+  - Response
+  - listen
 
 - _Events_
+
   - on() emit()
-- Reading big files into chunks (videos)
-- Reading Http files and sending HTML content
+  - Reading big files into chunks (videos)
+  - Reading Http files and sending HTML content
