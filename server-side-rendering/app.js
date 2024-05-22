@@ -1,4 +1,4 @@
-import express from "express";
+import express, { query } from "express";
 import { productData, userData } from "./data.js";
 
 const app = express();
@@ -13,12 +13,48 @@ app.get("/", (req, res) => {
   <a href="/products">Products</a>
   `);
 });
-//sending json response
 
+//sending json response
 app.get("/products", (req, res) => {
   res.status(200).json(productData);
 });
 app.get("/user", (req, res) => {
   res.status(200).json(userData);
+});
+
+app.get("/api/products", (req, res) => {
+  const newProductData = productData.map((product) => {
+    const { id, title, description, image } = product;
+    return { id, title, description, image };
+  });
+  res.status(200).json(newProductData);
+});
+
+// Params
+app.get("/api/products/:productID", (req, res) => {
+  const { productID } = req.params;
+  const singleProduct = productData.find((product) => product.id === Number(productID));
+  res.status(200).send(singleProduct);
+});
+
+// Query
+app.get("/api/cart", (req, res) => {
+  const { search, limit } = req.query;
+  const products = [...productData];
+
+  let sortedProducts = products.filter((product) => {
+    return product.title.startsWith(search);
+  });
+
+  if (limit) {
+    sortedProducts = sortedProducts.slice(0, limit);
+  }
+  if (sortedProducts.length < 1) {
+    return res
+      .status(200)
+      .json({ response: "Success", message: "No products matches the conditions" });
+  }
+
+  res.status(200).json(sortedProducts);
 });
 app.listen(PORT, () => console.log(`server running on: http://localhost:${PORT}`));
