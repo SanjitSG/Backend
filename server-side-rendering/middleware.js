@@ -8,7 +8,13 @@ const middleware = (req, res, next) => {
   next();
 };
 
-app.use(middleware);
+const middlewareTwo = (req, res, next) => {
+  console.log("Middleware-two");
+  next();
+};
+
+// multiple middlewares
+app.use(middleware, middlewareTwo);
 
 app.get("/", (req, res) => {
   res.status(200).send("<h1>Home Page..</h1>");
