@@ -2,11 +2,11 @@
   "name": "server-side-rendering",
   "version": "1.0.0",
   "description": "server side rendering using express and node",
-  "main": "middleware.js",
+  "main": "app.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon middleware.js"
+    "start": "nodemon app.js"
   },
   "keywords": [
     "express",
