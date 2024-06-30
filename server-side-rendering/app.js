@@ -1,5 +1,5 @@
 import express, { query } from "express";
-import { productData, userData } from "./data.js";
+import { productData, userData } from "./data.js"; // extension (.js) is impt while working with node
 
 const app = express();
 const PORT = 5000;
@@ -19,7 +19,20 @@ app.get("/products", (req, res) => {
   res.status(200).json(productData);
 });
 app.get("/user", (req, res) => {
-  res.status(200).json(userData);
+  res.status(200).json({ message: "success", data: userData });
+});
+
+//return a single user
+app.get("/user/:userId", (req, res) => {
+  const { userId } = req.params;
+  const singleUser = userData.find((user) => user.id === Number(userId));
+  if (!singleUser) {
+    return res
+      .status(200)
+      .json({ message: "success", data: `No user found with user id: ${userId}` });
+  } else {
+    res.status(200).json({ message: "success", data: singleUser });
+  }
 });
 
 app.get("/api/products", (req, res) => {

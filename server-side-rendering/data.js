@@ -263,8 +263,8 @@ export const productData = [
 ];
 
 export const userData = [
-  { name: "Sanjit", City: "Goa", Age: 28 },
-  { name: "Tony", City: "Delhi", Age: 24 },
-  { name: "John", City: "Pune", Age: 26 },
-  { name: "Sam", City: "Blr", Age: 22 },
+  { id: 1, name: "Sanjit", City: "Goa", Age: 28 },
+  { id: 2, name: "Tony", City: "Delhi", Age: 24 },
+  { id: 3, name: "John", City: "Pune", Age: 26 },
+  { id: 4, name: "Sam", City: "Blr", Age: 22 },
 ];
