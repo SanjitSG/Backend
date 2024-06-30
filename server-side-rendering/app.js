@@ -6,7 +6,7 @@ const PORT = 5000;
 
 //server-side-rendering
 // app.use(express.static("./website"));
-
+app.use(express.json());
 app.get("/", (req, res) => {
   res.status(200).send(`<h1>Home Page</h1>
   <a href="/user">User info</a>
@@ -33,6 +33,27 @@ app.get("/user/:userId", (req, res) => {
   } else {
     res.status(200).json({ message: "success", data: singleUser });
   }
+});
+
+// remove a user
+app.delete("/api/user/:userId", (req, res) => {
+  const { userId } = req.params;
+  const user = userData.find((user) => user.id === Number(userId));
+  if (!user) {
+    res.status(200).json({ message: "success", data: `no user with userId ${userId} found` });
+  } else {
+    let newUsers = userData.filter((user) => user.id !== Number(userId));
+    res.status(200).json({ message: "success", data: newUsers });
+  }
+
+  res.status(200).json({ message: "success", data: newData });
+});
+
+//POST
+// id, name, age, city
+app.post("/api/user/create", (req, res) => {
+  console.log(req.body);
+  res.status(200).json({ message: "Success", data: req.body });
 });
 
 app.get("/api/products", (req, res) => {
