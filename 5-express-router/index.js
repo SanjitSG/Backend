@@ -1,5 +1,5 @@
 import express from "express";
-import { getUser, getUsers, createUser, updateUser, deleteUser } from "./controller.js";
+import { getUser, getUsers, createUser, updateUser, deleteUser } from "./controllers/controller.js";
 const app = express();
 const PORT = 5000;
 
@@ -8,7 +8,7 @@ app.get("/api/v1/users", getUser);
 
 app.get("/api/v1/users/:id", getUser);
 
-app.post("/api/v1/create", createUser);
+app.post("/api/v1/users", createUser);
 
 app.put("/api/v1/users/:id", updateUser);
 
