@@ -52,8 +52,30 @@ app.delete("/api/user/:userId", (req, res) => {
 //POST
 // id, name, age, city
 app.post("/api/user/create", (req, res) => {
-  console.log(req.body);
-  res.status(200).json({ message: "Success", data: req.body });
+  const { id, name, age, city } = req.body;
+
+  if (!(id && name && age && city)) {
+    return res.status(200).json({ message: "Something went wrong" });
+  } else {
+    return res
+      .status(200)
+      .json({ message: `User with id ${id} is successfully created`, data: req.body });
+  }
+});
+
+//PUT - update existing content
+app.put("/api/user/:userId", (req, res) => {
+  const { userId } = req.params;
+  console.log(userId);
+  const userIndex = userData.findIndex((user) => user.id === Number(userId));
+  console.log(userIndex);
+  if (userIndex === -1) {
+    res.status(200).json({ message: `No user found with userId: ${userId}` });
+  } else {
+    const updatedUser = { ...userData[userIndex], ...req.body };
+    userData[userIndex] = updatedUser;
+    res.status(200).json({ message: "Success", data: userData });
+  }
 });
 
 app.get("/api/products", (req, res) => {
