@@ -1,0 +1,28 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "creating express server for performing basic CRUD operations with front-end",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "keywords": [
+    "CRUD",
+    "express",
+    "MERN",
+    "front-end",
+    "node",
+    "Sanjit",
+    "Gawade"
+  ],
+  "author": "Sanjit Gawade",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
