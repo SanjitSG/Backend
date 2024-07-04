@@ -1,5 +1,10 @@
+import Post from "../models/postModal.js";
+
 export const createPost = (req, res) => {
-  res.status(200).send("<h1>Post created successfully</h1>");
+  const newPost = new Post(req.body)
+    .save()
+    .then(() => res.status(201).json({ success: true, message: "Post created successfully" }))
+    .catch((err) => console.log(err));
 };
 
 export const getAllPosts = (req, res) => {

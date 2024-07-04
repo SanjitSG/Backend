@@ -6,7 +6,7 @@ export const createUser = (req, res) => {
   const newUser = new User({ username })
     .save()
     .then(() => {
-      res.status(201).json({ success: true, message: "User created successfully" });
+      res.status(201).json({ success: true, message: "User created successfully", data: username });
     })
     .catch((err) => console.log(err));
 };
