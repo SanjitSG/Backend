@@ -42,4 +42,6 @@ This application is build to demonstrate the how to connect MongoDB using mongoo
    - Navbar
    - Post
    - PostList
-3.
+3. create routes
+4. createUser component
+   - use axios to post data to backend controller

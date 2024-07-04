@@ -1,16 +1,17 @@
+import { Link } from "react-router-dom";
 const Nav = () => {
   return (
     <>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div class="container-fluid">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div className="container-fluid">
           <a
-            class="navbar-brand"
+            className="navbar-brand"
             href="#"
           >
             Post Tracker
           </a>
           <button
-            class="navbar-toggler"
+            className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarNavAltMarkup"
@@ -18,40 +19,32 @@ const Nav = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
           <div
-            class="collapse navbar-collapse"
+            className="collapse navbar-collapse"
             id="navbarNavAltMarkup"
           >
-            <div class="navbar-nav">
-              <a
-                class="nav-link active"
+            <div className="navbar-nav">
+              <Link
+                to={"/"}
+                className="nav-link active"
                 aria-current="page"
-                href="#"
               >
                 Post List
-              </a>
-              <a
-                class="nav-link"
-                href="#"
+              </Link>
+              <Link
+                to={"/posts"}
+                className="nav-link"
               >
                 Create Post
-              </a>
-              <a
-                class="nav-link"
-                href="#"
+              </Link>
+              <Link
+                to={"/users"}
+                className="nav-link"
               >
                 Create User
-              </a>
-              <a
-                class="nav-link disabled"
-                href="#"
-                tabindex="-1"
-                aria-disabled="true"
-              >
-                Disabled
-              </a>
+              </Link>
             </div>
           </div>
         </div>

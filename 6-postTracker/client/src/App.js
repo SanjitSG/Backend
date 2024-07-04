@@ -10,27 +10,27 @@ function App() {
     <Router>
       <div className="container">
         <Nav />
+        <Routes>
+          <Route
+            path="/"
+            element={<PostList />}
+          />
+          <Route
+            path="/:id"
+            element={<CreatePost />}
+          />
+
+          <Route
+            path="/:id"
+            element={<EditPost />}
+          />
+
+          <Route
+            path="/users"
+            element={<CreateUser />}
+          />
+        </Routes>
       </div>
-      <Routes>
-        <Route
-          path="/"
-          element={<PostList />}
-        />
-        <Route
-          path="/:id"
-          element={<CreatePost />}
-        />
-
-        <Route
-          path="/:id"
-          element={<EditPost />}
-        />
-
-        <Route
-          path="/users"
-          element={<CreateUser />}
-        />
-      </Routes>
     </Router>
   );
 }
