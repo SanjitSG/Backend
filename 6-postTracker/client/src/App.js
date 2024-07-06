@@ -16,7 +16,7 @@ function App() {
             element={<PostList />}
           />
           <Route
-            path="/:id"
+            path="/posts"
             element={<CreatePost />}
           />
 

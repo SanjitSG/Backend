@@ -14,7 +14,7 @@ This application is build to demonstrate the how to connect MongoDB using mongoo
 
 ## Packages
 
-- express, mongoose, dotenv, cors
+- express, mongoose, dotenv, cors, date picker
 - nodemon [dev dependency]
 
 ### Procedure
@@ -31,6 +31,16 @@ This application is build to demonstrate the how to connect MongoDB using mongoo
 8. create post and user modals (schema)
 9. import these models into respective controllers
 10. use relevant mongoose function to make the database calls
+11. createUser - and getAllUser postController logics
+    - use mongoose queries - new User(req.body)_.save()_ to post the newly created user to database
+    - User._find_ to all all the documents from "user" collection
+12. postController logics
+    - createPost - new Post(req.body)_.save()_
+    - getAllPost - Post._find()_
+    - getSinglePost - Post._findById(id)_
+    - updatePost - Post._findByIdAndUpdate(id,{})_
+    - deletePost - Post._deleteOne(id)_
+13. Test the logics using Postman
 
 ### Client
 
@@ -45,3 +55,9 @@ This application is build to demonstrate the how to connect MongoDB using mongoo
 3. create routes
 4. createUser component
    - use axios to post data to backend controller
+5. createPost: username, description, duration, date
+   - form - select box - input box (String) - input box (number) - date picker
+6. create a state variable object to get data from input fields and usernames from user collection
+7. using axios fetch usernames from user collection inside useEffect and map it users variable inside state variable
+8. handleChange function should update values inside state variable
+9. handleSubmit submits the date to "post" collection and creates a new user.

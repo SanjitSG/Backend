@@ -11,10 +11,7 @@ export const createPost = (req, res) => {
 //localhost:5000/posts | type:get
 export const getAllPosts = (req, res) => {
   Post.find().then((posts) => {
-    res
-      .status(200)
-      .json({ success: true, data: posts })
-      .catch((err) => console.log(err));
+    res.status(200).json({ success: true, data: posts });
   });
 };
 
