@@ -11,7 +11,7 @@ const PORT = process.env.PORT;
 const CONNECTION_URL = process.env.CONNECTION_URL;
 
 app.get("/", (req, res) => {
-  res.status(200).send("<h1>Welcome to Post Tracker</h1>");
+  res.status(200).send("<h1>Welcome to Post Tracker application backend server</h1>");
 });
 
 //middleware

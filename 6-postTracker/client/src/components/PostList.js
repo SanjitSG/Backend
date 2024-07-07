@@ -34,7 +34,7 @@ const PostList = () => {
             <th scope="col">Description</th>
             <th scope="col">Duration</th>
             <th scope="col">Date</th>
-            <th scope="col">Edit</th>
+            <th scope="col">Actions</th>
           </tr>
         </thead>
         <tbody>

@@ -4,12 +4,12 @@ const Nav = () => {
     <>
       <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
         <div className="container-fluid">
-          <a
+          <Link
             className="navbar-brand"
-            href="#"
+            to={"/"}
           >
             Post Tracker
-          </a>
+          </Link>
           <button
             className="navbar-toggler"
             type="button"

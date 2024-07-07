@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Datepicker from "react-datepicker";
 import { toast } from "react-toastify";
 const EditPost = () => {
+  const navigate = useNavigate();
   const [postBody, setPostBody] = useState([
     {
       username: "",
@@ -17,16 +18,21 @@ const EditPost = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const updatedPost = {
-      username: postBody.username,
-      description: postBody.description,
-      duration: postBody.duration,
-      date: postBody.date,
-    };
-    axios
-      .put(`http://localhost:5000/posts/${id}`, updatedPost)
-      .then((res) => toast.info(res.data.message))
-      .catch((err) => console.log(err));
+    if (window.confirm("Are you sure you want to edit the post?")) {
+      const updatedPost = {
+        username: postBody.username,
+        description: postBody.description,
+        duration: postBody.duration,
+        date: postBody.date,
+      };
+      axios
+        .put(`http://localhost:5000/posts/${id}`, updatedPost)
+        .then((res) => {
+          toast.info(res.data.message);
+          navigate("/");
+        })
+        .catch((err) => console.log(err));
+    }
   };
 
   const handleChange = (e) => {
@@ -56,7 +62,7 @@ const EditPost = () => {
 
   return (
     <div className="container">
-      <h2 className="display-5 text-center">Create Post</h2>
+      <h2 className="display-5 text-center">Edit Post</h2>
       <hr />
       <form onSubmit={handleSubmit}>
         <div className="mb-3">

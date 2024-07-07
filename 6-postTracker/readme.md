@@ -2,6 +2,15 @@
 
 This application is build to demonstrate the how to connect MongoDB using mongoose to backend.
 
+### Views
+
+- Navbar
+- Create user
+- Create Post
+- Display All Posts
+  - Edit Single Post
+  - Delete Single Post
+
 ## Basic setup
 
 - Create folder structure
@@ -9,12 +18,14 @@ This application is build to demonstrate the how to connect MongoDB using mongoo
   - server
     - index.js
     - routes
-    - controller
+    - controllers
+      - userController (to create user)
+      - postsController (to manage posts)
     - models
 
 ## Packages
 
-- express, mongoose, dotenv, cors, date picker
+- express, mongoose, dotenv, cors, date picker, react toast notification
 - nodemon [dev dependency]
 
 ### Procedure
@@ -61,3 +72,25 @@ This application is build to demonstrate the how to connect MongoDB using mongoo
 7. using axios fetch usernames from user collection inside useEffect and map it users variable inside state variable
 8. handleChange function should update values inside state variable
 9. handleSubmit submits the date to "post" collection and creates a new user.
+10. using useNavigate() hook from react-router-dom to navigate to "PostList Page" upon successfully create an user, creating/editing a post.
+11. _Bonus:_ Added toast notification
+    - Creating an user
+    - Create a post
+    - Deleting a post
+
+### Hosting
+
+**Cyclic** to host backend.
+
+1. Host backend first
+2. Make 2 changes before hosting the app
+   1. Update package.json Start script to "node index.js"
+   2. Set-up a base url in backend, so that we can check if the backend is hosted properly or not.
+3. Push the server to GitHub -> postTracker server
+   - Create a empty repo on github - 'postTrackerServer'
+   - On local machine go to server folder and open gitbash terminal
+   - git add .
+   - git commit -m "postTracker-server"
+   - git branch -M main
+   - git remote add origin <'url'>
+   - git push -u origin main (-u means --set-upstream, it establishes the tracking connection between local and remote branch)
