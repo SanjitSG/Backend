@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import Datepicker from "react-datepicker";
 import { toast } from "react-toastify";
+import { SERVER_URL } from "../constants";
 const EditPost = () => {
   const navigate = useNavigate();
   const [postBody, setPostBody] = useState([
@@ -26,7 +27,7 @@ const EditPost = () => {
         date: postBody.date,
       };
       axios
-        .put(`http://localhost:5000/posts/${id}`, updatedPost)
+        .put(`${SERVER_URL}/posts/${id}`, updatedPost)
         .then((res) => {
           toast.info(res.data.message);
           navigate("/");
@@ -55,7 +56,7 @@ const EditPost = () => {
   };
   useState(() => {
     axios
-      .get(`http://localhost:5000/posts`)
+      .get(`${SERVER_URL}/posts`)
       .then((res) => setPostBody(res.data.data.filter((p) => p._id === id)[0]));
   }, [id]);
   if (!postBody) return null;

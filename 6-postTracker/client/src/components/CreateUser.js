@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { SERVER_URL } from "../constants";
 
 const CreateUser = () => {
   const navigate = useNavigate();
@@ -12,7 +13,7 @@ const CreateUser = () => {
     let user = { username: username };
     if (username !== "") {
       axios
-        .post("http://localhost:5000/users/add", user)
+        .post(SERVER_URL + "/users/add", user)
         .then((res) => {
           toast.info(`User: ${res.data.data} created successfully`, {
             position: "top-right",

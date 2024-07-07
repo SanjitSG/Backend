@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { SERVER_URL } from "../constants";
 const CreatePost = () => {
   const [post, setPost] = useState({
     username: "",
@@ -12,7 +13,7 @@ const CreatePost = () => {
   });
   useEffect(() => {
     axios
-      .get("http://localhost:5000/users")
+      .get(SERVER_URL + "/users")
       .then((res) => {
         if (res.data.users.length > 0) {
           setPost((prev) => {
@@ -37,7 +38,7 @@ const CreatePost = () => {
     };
 
     axios
-      .post("http://localhost:5000/posts/add", newPost)
+      .post(SERVER_URL + "/posts/add", newPost)
       .then((res) => toast.success("Post created successfully"))
       .catch((err) => toast.error("Post not created"));
   };
@@ -103,10 +104,16 @@ const CreatePost = () => {
             value={post.duration}
             onChange={handleChange}
           />
-          <label htmlFor="date">Date</label>
+          <label
+            htmlFor="date"
+            className="d-block"
+          >
+            Date
+          </label>
           <DatePicker
             selected={post.date}
             className="form-control"
+            name="date"
             onChange={handleChangeDate}
           />
         </div>

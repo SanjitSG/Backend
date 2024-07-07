@@ -10,7 +10,7 @@ import { ToastContainer } from "react-toastify";
 function App() {
   return (
     <Router>
-      <div className="container-fluid">
+      <div>
         <Nav />
         <ToastContainer
           position="bottom-center"

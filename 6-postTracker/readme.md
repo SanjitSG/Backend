@@ -80,7 +80,7 @@ This application is build to demonstrate the how to connect MongoDB using mongoo
 
 ### Hosting
 
-**Cyclic** to host backend.
+**Render** to host backend.
 
 1. Host backend first
 2. Make 2 changes before hosting the app
@@ -94,3 +94,12 @@ This application is build to demonstrate the how to connect MongoDB using mongoo
    - git branch -M main
    - git remote add origin <'url'>
    - git push -u origin main (-u means --set-upstream, it establishes the tracking connection between local and remote branch)
+4. login to render connect github and authorize the postTracker-server repo
+5. On render select option Add new **Web Service** > select repo github repo list
+6. Add environment variables. PORT and Connection_Url
+7. Deploy
+8. Update localhost URLs inside client with server url
+9. Build client application
+10. Deploy on netlify
+
+---

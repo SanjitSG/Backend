@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Post from "./Post";
+import { SERVER_URL } from "../constants";
 const PostList = () => {
   const [posts, setPosts] = useState([]);
 
@@ -8,7 +9,7 @@ const PostList = () => {
     if (window.confirm("Are you sure you want to delete this post?")) {
       setPosts(posts.filter((p) => p._id !== id));
       axios
-        .delete(`http://localhost:5000/posts/${id}`)
+        .delete(`${SERVER_URL}/posts/${id}`)
         .then((res) => console.log(res.data))
         .catch((err) => console.log(err));
     }
@@ -16,7 +17,7 @@ const PostList = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/posts")
+      .get(SERVER_URL + "/posts")
       .then((postData) => {
         setPosts(postData.data.data);
       })
