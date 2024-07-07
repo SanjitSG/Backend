@@ -5,11 +5,17 @@ import PostList from "./components/PostList";
 import CreatePost from "./components/CreatePost";
 import EditPost from "./components/EditPost";
 import CreateUser from "./components/CreateUser";
+import { ToastContainer } from "react-toastify";
+
 function App() {
   return (
     <Router>
-      <div className="container">
+      <div className="container-fluid">
         <Nav />
+        <ToastContainer
+          position="bottom-center"
+          theme="colored"
+        />
         <Routes>
           <Route
             path="/"

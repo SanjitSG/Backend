@@ -19,7 +19,6 @@ const PostList = () => {
       .get("http://localhost:5000/posts")
       .then((postData) => {
         setPosts(postData.data.data);
-        console.log("Posts fetched successfully");
       })
       .catch((err) => console.log(err));
   }, []);

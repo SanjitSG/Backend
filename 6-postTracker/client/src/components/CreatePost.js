@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import axios from "axios";
+import { toast } from "react-toastify";
 const CreatePost = () => {
   const [post, setPost] = useState({
     username: "",
@@ -37,8 +38,8 @@ const CreatePost = () => {
 
     axios
       .post("http://localhost:5000/posts/add", newPost)
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
+      .then((res) => toast.success("Post created successfully"))
+      .catch((err) => toast.error("Post not created"));
   };
   const handleChange = (e) => {
     e.preventDefault();

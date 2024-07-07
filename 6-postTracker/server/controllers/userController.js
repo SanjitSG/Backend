@@ -8,7 +8,16 @@ export const createUser = (req, res) => {
     .then(() => {
       res.status(201).json({ success: true, message: "User created successfully", data: username });
     })
-    .catch((err) => console.log(err));
+    .catch(
+      (err) => {
+        console.log(err);
+        return res.status(400).json({ success: false, message: err });
+      }
+      //   res.status(409).json({
+      //   success: false,
+      //   message: `Username with username ${JSON.stringify(err.keyValue.username)} already exists.`,
+      // })
+    );
 };
 
 export const getAllUsers = (req, res) => {

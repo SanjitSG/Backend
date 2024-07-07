@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import Datepicker from "react-datepicker";
+import { toast } from "react-toastify";
 const EditPost = () => {
   const [postBody, setPostBody] = useState([
     {
@@ -24,7 +25,7 @@ const EditPost = () => {
     };
     axios
       .put(`http://localhost:5000/posts/${id}`, updatedPost)
-      .then((res) => console.log(res))
+      .then((res) => toast.info(res.data.message))
       .catch((err) => console.log(err));
   };
 
