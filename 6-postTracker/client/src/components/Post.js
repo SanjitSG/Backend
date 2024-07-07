@@ -15,7 +15,7 @@ const Post = ({ post, deletePost }) => {
           href="/"
           onClick={() => deletePost(_id)}
         >
-          Update
+          remove
         </a>
       </td>
     </tr>

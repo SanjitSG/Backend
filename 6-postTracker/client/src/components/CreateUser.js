@@ -14,6 +14,7 @@ const CreateUser = () => {
       })
       .catch((err) => console.log(err));
     setUsername("");
+    alert("user created successfully");
   };
 
   return (

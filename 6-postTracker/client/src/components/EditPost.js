@@ -104,43 +104,6 @@ const EditPost = () => {
       </form>
     </div>
   );
-  // return (
-  //   <div className="container-fluid">
-  //     <h2 className="display-5 text-center">Edit Post</h2>
-  //     <hr />
-  //     <form onSubmit={handleOnSubmit}>
-  //       <div className="mb-3">
-  //         <input
-  //           className="form-control"
-  //           type="text"
-  //           placeholder="Username"
-  //           value={username}
-  //           onChange={handleChange}
-  //         />
-  //         <input
-  //           className="form-control"
-  //           type="text"
-  //           placeholder="description"
-  //           value={description}
-  //           onChange={handleChange}
-  //         />
-  //         <input
-  //           onChange={handleChange}
-  //           className="form-control"
-  //           type="number"
-  //           placeholder="duration"
-  //           value={duration}
-  //         />
-  //         <Datepicker
-  //           onChange={handleDateChange}
-  //           selected={date}
-  //           className="form-control"
-  //         />
-  //       </div>
-  //       <button type="submit">Update Post</button>
-  //     </form>
-  //   </div>
-  // );
 };
 
 export default EditPost;
